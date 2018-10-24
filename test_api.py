@@ -4,7 +4,8 @@ import storemanager_api
 class Test(TestCase):
 
 	def setUp(self):
-		self.app = storemanager_api.app.test_client() 
+		#self.app = storemanager_api.app.test_client()
+		self.app = app.app.test_client()  
 
 	def test_hello_world(self):
 		response = self.app.get('/hello')
