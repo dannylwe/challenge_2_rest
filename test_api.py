@@ -1,5 +1,5 @@
 from unittest import TestCase
-import storemanager_api
+import app
 
 class Test(TestCase):
 
