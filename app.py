@@ -18,7 +18,6 @@ class get_attendants(Resource):
 
 		return {"attendants": attendant}, 200
 
-@api.response(204, 'successfully deleted.')
 @api.route(base_url + '/del_one_attendant/<int:id>')
 class delete_attendant(Resource):
 
@@ -27,18 +26,17 @@ class delete_attendant(Resource):
 
 	@api.marshal_with(a_attendant, envelope= 'data')
 	def delete(self, id):
-		"Delete one attendant by Id"
+		"Delete one product by Id"
 
 		global attendant
 
 		match= self.find_one(id)
 		attendant= list(filter(lambda b: b['id'] != id, attendant))
 
-		return match
+		return match, 204
 
 		"""
 		attendant.pop(id)
-
 		return {"attendant": attendant}, 204
 		"""
 
@@ -78,7 +76,7 @@ class Del_product(Resource):
 		match= self.find_one(id)
 		products= list(filter(lambda b: b['id'] != id, products))
 
-		return match
+		return match, 204
 
 		"""
 		for index, prod in enumerate(products):

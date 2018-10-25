@@ -12,7 +12,7 @@ attendant = [
 	"name": "Tony Stark",
 	"email": "tony@gmail.com",
 	"password": "iamironman",
-	"contact": "1800-TONY-STARK",
+	"contact": "0774567890",
 	},
 
 	{
