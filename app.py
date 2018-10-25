@@ -18,7 +18,7 @@ class get_attendants(Resource):
 
 		return {"attendants": attendant}, 200
 
-@api.route(base_url + '/del_one_attendant/<int:id>')
+@api.route(base_url + '/attendants/<int:id>')
 class delete_attendant(Resource):
 
 	def find_one(self, id):
@@ -40,7 +40,7 @@ class delete_attendant(Resource):
 		return {"attendant": attendant}, 204
 		"""
 
-@api.route(base_url + '/all_products')
+@api.route(base_url + '/products')
 class All_products(Resource):
 	@api.doc('Method that returns all products')
 	def get(self):
@@ -48,7 +48,7 @@ class All_products(Resource):
 
 		return {"products": products}, 200
 
-@api.route(base_url + '/one_product/<int:id>')
+@api.route(base_url + '/products/<int:id>')
 class One_product(Resource):
 
 	@api.marshal_with(a_product, envelope= 'data')
@@ -61,7 +61,7 @@ class One_product(Resource):
 		#return {"product": products[id]}, 200
 
 #@api.response(204, 'successfully deleted.')
-@api.route(base_url + '/del_one_product/<int:id>')
+@api.route(base_url + '/products/<int:id>')
 class Del_product(Resource):
 
 	def find_one(self, id):
@@ -91,7 +91,7 @@ class Del_product(Resource):
 		"""
 
 @api.expect(a_product)
-@api.route(base_url + '/add_product/')
+@api.route(base_url + '/products/')
 class post_product(Resource):
 
 	def post(self):
@@ -118,6 +118,6 @@ class Sale_order_post(Resource):
 		"Post a sale order"
 
 		new_sale_order = api.payload
-		new_sale_order['id'] = sale_order[-1]['id'] + 1 if len(Sale_order) > 0 else 0
+		new_sale_order['id'] = sale_order[-1]['id'] + 1 if len(sale_order) > 0 else 0
 		sale_order.append(new_sale_order)
 		return {"successfully added new sale order": new_sale_order}, 201

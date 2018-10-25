@@ -12,7 +12,7 @@ class Test(TestCase):
 		self.assertEqual(response.status_code, 200)
 	
 	def test_get_all_products(self):
-		response = self.app.get('/api/v1/all_products')
+		response = self.app.get('/api/v1/products')
 		self.assertEqual(response.status_code, 200)
 
 	def test_attendants(self):
@@ -24,13 +24,13 @@ class Test(TestCase):
 		self.assertEqual(response.status_code, 200)
 
 	def test_get_one_products(self):
-		response = self.app.get('/api/v1/one_product/1')
+		response = self.app.get('/api/v1/products/1')
 		self.assertEqual(response.status_code, 200)
 
 	def test_delete_one_attendants(self):
-		response = self.app.delete('/api/v1/del_one_attendant/2')
+		response = self.app.delete('/api/v1/attendants/1')
 		self.assertEqual(response.status_code, 204)
 
 	def test_delete_one_product(self):
-		response = self.app.delete('/api/v1/del_one_product/1')
+		response = self.app.delete('/api/v1/products/1')
 		self.assertEqual(response.status_code, 204)
