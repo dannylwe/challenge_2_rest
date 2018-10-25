@@ -6,9 +6,11 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
   - pip install codeclimate-test-reporter
+  - pip install pytest pytest-cov
 # command to run tests
 script:
-  - pytest --cov
+  - pytest 
+  - py.test
 #after successful run
 after_success:
   - coveralls
