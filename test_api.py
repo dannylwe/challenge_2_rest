@@ -35,3 +35,15 @@ class Test(TestCase):
 	def test_delete_one_product(self):
 		response = self.app.delete('/api/v1/products/1')
 		self.assertEqual(response.status_code, 204)
+
+	def test_login(self):
+		response = self.app.delete('/login')
+		self.assertEqual(response.status_code, 405)
+
+	def test_login_refresh(self):
+		response = self.app.delete('/token/refresh')
+		self.assertEqual(response.status_code, 405)
+
+	def test_login_logout(self):
+		response = self.app.delete('/logout')
+		self.assertEqual(response.status_code, 405)
