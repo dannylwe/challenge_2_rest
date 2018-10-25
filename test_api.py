@@ -19,9 +19,10 @@ class Test(TestCase):
 		response = self.app.get('/api/v1/attendants')
 		self.assertEqual(response.status_code, 200)
 
+	#endpoint with jwt
 	def test_sale_order(self):
 		response = self.app.get('/api/v1/g/sale_order/')
-		self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 500)
 
 	def test_get_one_products(self):
 		response = self.app.get('/api/v1/products/1')

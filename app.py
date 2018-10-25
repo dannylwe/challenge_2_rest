@@ -105,7 +105,7 @@ class post_product(Resource):
 
 @api.route(base_url + '/g/sale_order/')
 class Sale_order(Resource):
-
+	@jwt_required
 	def get(self):
 		"Get all records of sale orders"
 

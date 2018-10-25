@@ -4,3 +4,4 @@ storemanager_api.pyc
 app.pyc
 test_api.pyc
 models.pyc
+auth_view.pyc
