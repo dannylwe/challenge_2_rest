@@ -22,12 +22,25 @@ class get_attendants(Resource):
 @api.route(base_url + '/del_one_attendant/<int:id>')
 class delete_attendant(Resource):
 
+	def find_one(self, id):
+		return next((b for b in attendant if b['id'] == id), None)
+
+	@api.marshal_with(a_attendant, envelope= 'data')
 	def delete(self, id):
 		"Delete one attendant by Id"
 
+		global attendant
+
+		match= self.find_one(id)
+		attendant= list(filter(lambda b: b['id'] != id, attendant))
+
+		return match
+
+		"""
 		attendant.pop(id)
 
 		return {"attendant": attendant}, 204
+		"""
 
 @api.route(base_url + '/all_products')
 class All_products(Resource):
@@ -40,17 +53,32 @@ class All_products(Resource):
 @api.route(base_url + '/one_product/<int:id>')
 class One_product(Resource):
 
+	@api.marshal_with(a_product, envelope= 'data')
 	def get(self, id):
 		"Get one product by Id"
 
-		return {"product": products[id]}, 200
+		result = [prod for prod in products if prod['id'] == id]
+
+		return result
+		#return {"product": products[id]}, 200
 
 #@api.response(204, 'successfully deleted.')
 @api.route(base_url + '/del_one_product/<int:id>')
 class Del_product(Resource):
 
+	def find_one(self, id):
+		return next((b for b in products if b['id'] == id), None)
+
+	@api.marshal_with(a_product, envelope= 'data')
 	def delete(self, id):
 		"Delete one product by Id"
+
+		global products
+
+		match= self.find_one(id)
+		products= list(filter(lambda b: b['id'] != id, products))
+
+		return match
 
 		"""
 		for index, prod in enumerate(products):
@@ -59,9 +87,10 @@ class Del_product(Resource):
                 return {"response": "product deleted"}, 204
         return None, 404
         """
-
+		"""
 		products.pop(id)
 		return {"products": products}, 204
+		"""
 
 @api.expect(a_product)
 @api.route(base_url + '/add_product/')
@@ -71,6 +100,7 @@ class post_product(Resource):
 		"Add a single product"
 
 		new_product = api.payload
+		new_product['id'] = products[-1]['id'] + 1 if len(products) > 0 else 0
 		products.append(new_product)
 		return {"successfully added product": new_product}, 201
 
@@ -90,5 +120,6 @@ class Sale_order_post(Resource):
 		"Post a sale order"
 
 		new_sale_order = api.payload
+		new_sale_order['id'] = sale_order[-1]['id'] + 1 if len(Sale_order) > 0 else 0
 		sale_order.append(new_sale_order)
 		return {"successfully added new sale order": new_sale_order}, 201

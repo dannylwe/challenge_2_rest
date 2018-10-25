@@ -33,10 +33,7 @@ attendant = [
 ]
 
 products = [
-	{
-	"id": 0, "name": None, "quantity": None
-	},
-
+	
 	{
 	"id": 1, "name": "Kitchen towels", "quantity": 15, "price": 4000
 	},
@@ -67,19 +64,24 @@ sale_order = [
 """
 #print(products[0])
 
-a_product = api.model('product', {
-	"id": fields.Integer('Id of item'),
+a_product = api.model('product', {	
 	"name": fields.String('name of product'), 
 	"quantity": fields.Integer('Number of products'),
 	"price": fields.Integer('Retail price'),
 	})
 
 a_sale_order = api.model('sale_order', {
-	"order_id": fields.Integer('Unique order Id'),
 	"name": fields.String('Name of product(s)'),
 	"quantity": fields.Integer('Numerical quantity of products'),
 	"price": fields.Integer('Cumulative price'),
 	"attendant": fields.String('Name of attendant'),
 	"attendant_id": fields.String('Unique Id of attendant'),
 	"category": fields.String('category of product if any'),
+	})
+
+a_attendant = api.model('attendant', {
+	"name": fields.String('Name of attendant'),
+	"email": fields.String("Email for attendant"),
+	"password": fields.String("password for attendant account"),
+	"contact": fields.Integer("Handphone contact number")
 	})
