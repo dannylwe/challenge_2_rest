@@ -9,7 +9,7 @@ install:
   - pip install pytest pytest-cov
 # command to run tests
 script:
-  - pytest test_api.py
+# - pytest test_api.py
   - py.test test_api.py
 #after successful run
 after_success:
