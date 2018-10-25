@@ -91,7 +91,7 @@ class HelloWorld(Resource):
     def get(self):
     	"sanity check"
 
-        return {'hello': 'world'}
+        return {'hello': 'world'}, 200
 
 @api.route(base_url + '/attendants')
 class get_attendants(Resource):
@@ -99,7 +99,7 @@ class get_attendants(Resource):
 	def get(self):
 		"Get all records of attendants"
 
-		return {"attendants": attendant}
+		return {"attendants": attendant}, 200
 
 @api.response(204, 'successfully deleted.')
 @api.route(base_url + '/del_one_attendant/<int:id>')
@@ -110,7 +110,7 @@ class delete_attendant(Resource):
 
 		attendant.pop(id)
 
-		return {"attendant": attendant}
+		return {"attendant": attendant}, 204
 
 @api.route(base_url + '/all_products')
 class All_products(Resource):
@@ -118,25 +118,33 @@ class All_products(Resource):
 	def get(self):
 		"Get all products"
 
-		return {"products": products}
+		return {"products": products}, 200
 
 @api.route(base_url + '/one_product/<int:id>')
 class One_product(Resource):
 
 	def get(self, id):
 		"Get one product by Id"
+			
+		return {"product": products[id]}, 200
 
-		return {"product": products[id]}
-
-@api.response(204, 'successfully deleted.')
+#@api.response(204, 'successfully deleted.')
 @api.route(base_url + '/del_one_product/<int:id>')
 class Del_product(Resource):
 
 	def delete(self, id):
 		"Delete one product by Id"
 
+		"""
+		for index, prod in enumerate(products):
+            if prod['id'] == id:
+                del products[index]
+                return {"response": "product deleted"}, 204
+        return None, 404
+        """
+
 		products.pop(id)
-		return {"products": products}
+		return {"products": products}, 204
 
 @api.expect(a_product)
 @api.route(base_url + '/add_product/')
@@ -156,7 +164,7 @@ class Sale_order(Resource):
 	def get(self):
 		"Get all records of sale orders"
 
-		return {"sale_orders": sale_order}
+		return {"sale_orders": sale_order}, 200
 
 @api.route(base_url + '/sale_order')	
 @api.expect(a_sale_order)

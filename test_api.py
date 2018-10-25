@@ -29,11 +29,11 @@ class Test(TestCase):
 
 	def test_delete_one_attendants(self):
 		response = self.app.delete('/api/v1/del_one_attendant/1')
-		self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 204)
 
 	def test_delete_one_product(self):
 		response = self.app.delete('/api/v1/del_one_product/1')
-		self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 204)
 	
 
 	
