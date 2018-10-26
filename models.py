@@ -2,7 +2,6 @@ from flask_restplus import Api, Resource, fields
 
 from auth_view import *
 
-
 api = Api(app, version='1.1', title='Store Manager Api', 
 	description='An Api that supplies data to the store manager app')
 

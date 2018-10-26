@@ -12,19 +12,19 @@ The API endpoints and description can be found on the index page of the app unde
 
 Clicking on an individual endpoint brings a drop down of options for that endpoint, where it can be tested by utilizing the "Try it now" button.
 
-Routes:
-
-- GET 		/hello					
-- GET 		/api/v1/attendants
-- DELETE 	/api/v1/attendants/{id}
-- GET 		/api/v1/sale_order
-- GET 		/api/v1/products
-- POST 		/api/v1/products
-- DELETE 	/api/v1/products/{id}
-- POST 		/api/v1/sale_order
-- POST		/login
-- POST		/logout
-- POST 		/token/refresh
+|Method | Route | Functionality|
+| ---| --- | ---|
+| GET | /hello | sanity check|
+| GET | /api/v1/attendants| Get all attendants|
+| DELETE | /api/v1/attendants/{id} | Get attendants by Id |
+| GET | /api/v1/sale_order | Get sale order |
+| GET | /api/v1/products | Get all products |
+| POST | /api/v1/products | Post a product |
+| DELETE| /api/v1/products/{id} | Delete product by Id|
+| POST | /api/v1/sale_order | Post a sale order |
+| POST | /login | Login as admin; auth by JWT cookie |
+| POST | /logout | Logout of admin; revoke JWT |
+| POST | /token/refresh | Refresh JWT after expiry|
 
 for /login, data={"username":"admin", "password":"admin"} Content-Type; Application/JSON
 
