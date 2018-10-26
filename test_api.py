@@ -21,7 +21,7 @@ class Test(TestCase):
 
 	#endpoint with jwt
 	def test_sale_order(self):
-		response = self.app.get('/api/v1/g/sale_order/')
+		response = self.app.get('/api/v1/sale_order')
 		self.assertEqual(response.status_code, 500)
 
 	def test_get_one_products(self):
