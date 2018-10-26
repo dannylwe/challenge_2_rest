@@ -90,10 +90,11 @@ class Del_product(Resource):
 		return {"products": products}, 204
 		"""
 
-@api.expect(a_product)
+
 @api.route(base_url + '/products/')
 class post_product(Resource):
 
+	@api.expect(a_product, Validate=True)
 	def post(self):
 		"Add a single product"
 
@@ -112,8 +113,9 @@ class Sale_order(Resource):
 		return {"sale_orders": sale_order}, 200
 
 @api.route(base_url + '/sale_order')	
-@api.expect(a_sale_order)
 class Sale_order_post(Resource):
+
+	@api.expect(a_sale_order, Validate=True)
 	def post(self):
 		"Post a sale order"
 
