@@ -1,4 +1,5 @@
 from unittest import TestCase
+import json
 import app
 
 class Test(TestCase):
@@ -51,6 +52,10 @@ class Test(TestCase):
 	def test_login_post(self):
 		response = self.app.post('/login')
 		self.assertEqual(response.status_code, 500)
+
+	def test_login_post_auth(self):
+		response = self.app.post('/login', json={"username":"admin", "password":"admin"})
+		self.assertEqual(response.status_code, 200)
 
 	def test_login_refresh_post(self):
 		response = self.app.post('/token/refresh')
