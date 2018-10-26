@@ -1,6 +1,6 @@
 # challenge_2_rest
 
-[![Build Status](https://travis-ci.org/dannylwe/challenge_2_rest.svg?branch=master)](https://travis-ci.org/dannylwe/challenge_2_rest) [![Coverage Status](https://coveralls.io/repos/github/dannylwe/challenge_2_rest/badge.svg?branch=master)](https://coveralls.io/github/dannylwe/challenge_2_rest?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/70b8b7e4b184c71c83b2/maintainability)](https://codeclimate.com/github/dannylwe/challenge_2_rest/maintainability) 
+[![Build Status](https://travis-ci.org/dannylwe/challenge_2_rest.svg?branch=master)](https://travis-ci.org/dannylwe/challenge_2_rest) [![Coverage Status](https://coveralls.io/repos/github/dannylwe/challenge_2_rest/badge.svg?branch=master)](https://coveralls.io/github/dannylwe/challenge_2_rest?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/70b8b7e4b184c71c83b2/maintainability)](https://codeclimate.com/github/dannylwe/challenge_2_rest/maintainability) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f5cb85008414e4a9a04d705af2289cd)](https://www.codacy.com/app/dannylwe/challenge_2_rest?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dannylwe/challenge_2_rest&amp;utm_campaign=Badge_Grade)
 
 This repo is a continuation of the branch "flask_with_tests" in the repo "andela_13".
 
