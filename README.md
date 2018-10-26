@@ -17,14 +17,14 @@ Routes:
 - GET 		/hello					
 - GET 		/api/v1/attendants
 - DELETE 	/api/v1/attendants/{id}
-- GET 		/api/v1/g/sale_order/
+- GET 		/api/v1/sale_order
 - GET 		/api/v1/products
-- POST 		/api/v1/products/
+- POST 		/api/v1/products
 - DELETE 	/api/v1/products/{id}
 - POST 		/api/v1/sale_order
 - POST		/login
 - POST		/logout
 - POST 		/token/refresh
 
-for /login, data={"username":"admin", "password":"admin"}
+for /login, data={"username":"admin", "password":"admin"} Content-Type; Application/JSON
 
