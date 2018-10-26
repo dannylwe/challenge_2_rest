@@ -47,3 +47,15 @@ class Test(TestCase):
 	def test_login_logout(self):
 		response = self.app.delete('/logout')
 		self.assertEqual(response.status_code, 405)
+
+	def test_login_post(self):
+		response = self.app.post('/login')
+		self.assertEqual(response.status_code, 500)
+
+	def test_login_refresh_post(self):
+		response = self.app.post('/token/refresh')
+		self.assertEqual(response.status_code, 401)
+
+	def test_login_logout_post(self):
+		response = self.app.post('/logout')
+		self.assertEqual(response.status_code, 200)
